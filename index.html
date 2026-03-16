@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dreamscape - Children's Stories & Adventures</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- HTML2Canvas for capturing iframe content -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- HTML2PDF Library for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- jsPDF for advanced PDF creation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">📚 The Dreamscape</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#storyLibrary" class="nav-link" onclick="showAllStories()">All Stories</a></li>
+                <li><a href="#categories" class="nav-link">Categories</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="butterflies-container">
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+            <div class="butterfly"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Welcome to The Dreamscape! 🌟</h1>
+            <p>Discover magical tales and adventures for children of all ages</p>
+            <button class="cta-button" onclick="document.getElementById('featured').scrollIntoView({behavior: 'smooth'})">
+                Read Stories Now
+            </button>
+        </div>
+        <div class="hero-illustration">
+            🧚‍♀️✨📖🌈
+        </div>
+    </section>
+
+    <!-- Featured Book Section -->
+    <section id="featured" class="featured-book">
+        <div class="container">
+            <h2>✨ Featured Story This Week ✨</h2>
+            <div class="featured-content">
+                <div class="featured-info">
+                    <h3>The Tales of Fireflies - Meadow</h3>
+                    <p class="rating">⭐⭐⭐⭐⭐ 5/5 Stars</p>
+                    <p class="description">
+                        Join us for a magical journey through the enchanted meadow where fireflies gather for the 
+                        most spectacular July Festival of the year! Watch as tiny lights dance in the darkness, 
+                        telling stories of friendship, wonder, and summer magic. Perfect for bedtime stories and 
+                        inspiring young imaginations.
+                    </p>
+                    <div class="book-details">
+                        <span class="detail">📖 Age: 4-8 years</span>
+                        <span class="detail">⏱️ Reading Time: 5-10 min</span>
+                        <span class="detail">✨ Theme: Magic & Nature</span>
+                    </div>
+                    <button class="read-button" onclick="document.getElementById('bookViewer').scrollIntoView({behavior: 'smooth'})">
+                        Read Full Story →
+                    </button>
+                </div>
+                <div class="featured-image">
+                    🧚‍♀️💫🔥✨
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Library - Filter by Category -->
+    <section id="storyLibrary" class="featured-stories">
+        <div class="container">
+            <h2>📚 Story Library - Explore & Filter Stories 📚</h2>
+            <div class="stories-grid" id="storyLibraryGrid">
+                <!-- duplicate of all story cards for easy access -->
+                <div class="story-card featured-showcase" data-category="bedtime-stories" data-url="https://simplebooklet.com/thetailesoffirefliesmeadow3">
+                    <img src="fireflies.png" alt="Tales of Fireflies Cover" class="card-cover">
+                    <h3>Tales of Fireflies - Meadow</h3>
+                    <p>Where magical fireflies light up the July Festival with wonder and enchantment.</p>
+                    <span class="age-badge">4-8 years</span>
+                </div> 
+
+                <div class="story-card" data-category="adventure-fun" data-url="https://simplebooklet.com/lilaandthewhisperingforest">
+                    <img src="lila.png" alt="Lila and the Whispering Forest Cover" class="card-cover">
+                    <h3>Lila and the Whispering Forest</h3>
+                    <p>Discover the magic of the forest where trees whisper secrets and adventures await.</p>
+                    <span class="age-badge">4-8 years</span>
+                </div>
+
+                <div class="story-card" data-category="bedtime-stories fantasy-magic" data-url="https://heyzine.com/flip-book/49f461a5be.html">
+                    <img src="mermaid_sacrifice.png" alt="The Mermaid Sacrifice Cover" class="card-cover">
+                    <h3>THE MERMAID SACRIFICE</h3>
+                    <p>Dive into an underwater adventure with a curious mermaid and her magical friends.</p>
+                    <span class="age-badge">5-9 years</span>
+                </div>
+
+                <div class="story-card" data-category="animal-tales" data-url="https://heyzine.com/flip-book/346b2f339b.html">
+                    <img src="Gemini_Generated_Image_o62r6co62r6co62r.png" alt="Brave Little Bear Cover" class="card-cover">
+                    <h3>The Brave Little Bear</h3>
+                    <p>A heartwarming tale of a small bear learning to be brave in the big forest.</p>
+                    <span class="age-badge">3-6 years</span>
+                </div>
+
+                <div class="story-card" data-category="fantasy-magic">
+                    <div class="card-emoji">🧜‍♀️</div>
+                    <h3>Mermaid's Secret Garden</h3>
+                    <p>Dive into an underwater adventure with a curious mermaid and her magical friends.</p>
+                    <span class="age-badge">5-9 years</span>
+                </div>
+
+                <div class="story-card" data-category="sci-fi-discovery">
+                    <div class="card-emoji">🚀</div>
+                    <h3>Space Explorer Luna</h3>
+                    <p>Journey through the stars with Luna as she discovers new planets and alien friends.</p>
+                    <span class="age-badge">6-10 years</span>
+                </div>
+
+                <div class="story-card" data-category="animal-tales" data-url="https://heyzine.com/flip-book/2b90fabc38.html">
+                    <img src="story-images/lion_kings_secret_new.jpg" alt="The Lion King's Secret Cover" class="card-cover">
+                    <h3>The Lion King's Secret</h3>
+                    <p>Experience the savanna like never before through the eyes of a noble lion.</p>
+                    <span class="age-badge">4-8 years</span>
+                </div>
+
+                <div class="story-card" data-category="fantasy-magic" data-url="https://heyzine.com/flip-book/6fd7d2bb0e.html">
+                    <img src="story-images/wizard_apprentice.png" alt="The Wizard's Apprentice Cover" class="card-cover">
+                    <h3>The Wizard's Apprentice</h3>
+                    <p>Learn magic and discover the power of friendship in this enchanted adventure.</p>
+                    <span class="age-badge">7-12 years</span>
+                </div>
+
+                <div class="story-card" data-category="adventure-fun animal-tales" data-url="https://heyzine.com/flip-book/c80a27cdcb.html">
+                    <img src="story-images/great_race_meadow_new.png" alt="The Great Race of Green Meadow Cover" class="card-cover">
+                    <h3>The Great Race of Green Meadow</h3>
+                    <p>Join the exciting adventure through the lush green meadows in this thrilling race story.</p>
+                    <span class="age-badge">5-10 years</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Viewer -->
+    <section id="bookViewer" class="book-viewer">
+        <div class="container">
+            <div class="viewer-header">
+                <h2>📖 Read The Story Now</h2>
+                <button class="download-btn" onclick="downloadStoryPDF()" title="Download this story as PDF">
+                    📥 Download PDF
+                </button>
+            </div>
+            <div class="iframe-container">
+                <iframe 
+                    src="https://simplebooklet.com/thetailesoffirefliesmeadow3" 
+                    width="100%" 
+                    height="600" 
+                    frameborder="0" 
+                    allowfullscreen
+                    title="The Tales of Fireflies - Meadow">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Stories Carousel -->
+    <section id="stories" class="stories-carousel-section">
+        <div class="container">
+            <h2>📚 Swipe to Explore Stories</h2>
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <div class="carousel-inner" id="carouselInner">
+                        <div class="carousel-item" data-url="https://simplebooklet.com/thetailesoffirefliesmeadow3">
+                            <div class="carousel-card">
+                                <img src="fireflies.png" alt="Tales of Fireflies Cover" class="carousel-cover">
+                                <h3>Tales of Fireflies - Meadow</h3>
+                                <p>Where magical fireflies light up the July Festival with wonder and enchantment.</p>
+                                <span class="carousel-badge">4-8 years</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" data-url="https://simplebooklet.com/lilaandthewhisperingforest">
+                            <div class="carousel-card">
+                                <img src="lila.png" alt="Lila and the Whispering Forest Cover" class="carousel-cover">
+                                <h3>Lila and the Whispering Forest</h3>
+                                <p>Discover the magic of the forest where trees whisper secrets and adventures await.</p>
+                                <span class="carousel-badge">4-8 years</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" data-url="https://heyzine.com/flip-book/49f461a5be.html">
+                            <div class="carousel-card">
+                                <img src="mermaid_sacrifice.png" alt="The Mermaid Sacrifice Cover" class="carousel-cover">
+                                <h3>THE MERMAID SACRIFICE</h3>
+                                <p>Dive into an underwater adventure with a curious mermaid and her magical friends.</p>
+                                <span class="carousel-badge">5-9 years</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" data-url="https://heyzine.com/flip-book/346b2f339b.html">
+                            <div class="carousel-card">
+                                <img src="Gemini_Generated_Image_o62r6co62r6co62r.png" alt="Brave Little Bear Cover" class="carousel-cover">
+                                <h3>The Brave Little Bear</h3>
+                                <p>A heartwarming tale of a small bear learning to be brave in the big forest.</p>
+                                <span class="carousel-badge">3-6 years</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="carousel-card">
+                                <div class="card-emoji-large">🧜‍♀️</div>
+                                <h3>Mermaid's Secret Garden</h3>
+                                <p>Dive into an underwater adventure with a curious mermaid and her magical friends.</p>
+                                <span class="carousel-badge">5-9 years</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="carousel-card">
+                                <div class="card-emoji-large">🚀</div>
+                                <h3>Space Explorer Luna</h3>
+                                <p>Journey through the stars with Luna as she discovers new planets and alien friends.</p>
+                                <span class="carousel-badge">6-10 years</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" data-url="https://heyzine.com/flip-book/2b90fabc38.html">
+                            <div class="carousel-card">
+                                <img src="story-images/lion_kings_secret_new.jpg" alt="The Lion King's Secret Cover" class="carousel-cover">
+                                <h3>The Lion King's Secret</h3>
+                                <p>Experience the savanna like never before through the eyes of a noble lion.</p>
+                                <span class="carousel-badge">4-8 years</span>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" data-url="https://heyzine.com/flip-book/6fd7d2bb0e.html">
+                            <div class="carousel-card">
+                                <img src="story-images/wizard_apprentice.png" alt="The Wizard's Apprentice Cover" class="carousel-cover">
+                                <h3>The Wizard's Apprentice</h3>
+                                <p>Learn magic and discover the power of friendship in this enchanted adventure.</p>
+                                <span class="carousel-badge">7-12 years</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-nav carousel-prev" id="carouselPrev">❮</button>
+                <button class="carousel-nav carousel-next" id="carouselNext">❯</button>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories-section">
+        <div class="container">
+            <h2>📂 Browse by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-filter="animal-tales">
+                    <div class="category-icon">🐾</div>
+                    <h3>Animal Tales</h3>
+                    <p>Stories about friendly animals and their adventures</p>
+                </div>
+
+                <div class="category-card" data-filter="bedtime-stories">
+                    <div class="category-icon">🌙</div>
+                    <h3>Bedtime Stories</h3>
+                    <p>Gentle, soothing tales perfect for sleeping</p>
+                </div>
+
+                <div class="category-card" data-filter="adventure-fun">
+                    <div class="category-icon">🎉</div>
+                    <h3>Adventure & Fun</h3>
+                    <p>Exciting quests and funny misadventures</p>
+                </div> 
+
+                <div class="category-card">
+                    <div class="category-icon">💚</div>
+                    <h3>Lessons & Values</h3>
+                    <p>Stories that teach kindness and friendship</p>
+                </div>
+
+                <div class="category-card" data-filter="fantasy-magic">
+                    <div class="category-icon">✨</div>
+                    <h3>Fantasy & Magic</h3>
+                    <p>Enchanted worlds and magical creatures</p>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">🚀</div>
+                    <h3>Sci-Fi & Discovery</h3>
+                    <p>Explore space, future worlds, and possibilities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 The Dreamscape - Inspiring Young Readers Everywhere</p>
+            <p>📧 Contact: stories@storybookparadise.com | 📱 Follow us for new stories!</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
